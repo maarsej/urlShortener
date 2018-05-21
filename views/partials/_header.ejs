@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <% include _style %>
+</head>
+
+<body>
+      <div class="header">
+       URL Shortener
+  </div>
+  <div class="topnav">
+         <form style="display: inline;" method="GET" action="/urls">
+          <input type="submit" value="Home">
+        </form>
+
+        <% if(userID == undefined){ %>
+        <form style="display: inline;" method="GET" action="/login">
+          <input type="submit" value="Login">
+        </form>
+        <form style="display: inline;" method="GET" action="/register">
+          <input type="submit" value="Register">
+        </form>
+        <% } else { %>
+        <form style="display: inline;" method="POST" action="/logout">
+          <%= 'Logged in as: ' + users[userID].email %>
+          <input type="submit" value="Logout">
+        </form>
+        <% } %>
+  </div>
+</body>
